@@ -1,14 +1,21 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    ></div>
-  );
-};
+import { Component } from 'react';
+
+class App extends Component {
+  state = {
+    image: [],
+  };
+
+  handleSubmit = event => {};
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}></form>
+
+        <div>Gallery</div>
+
+        <button>Load more</button>
+      </div>
+    );
+  }
+}
