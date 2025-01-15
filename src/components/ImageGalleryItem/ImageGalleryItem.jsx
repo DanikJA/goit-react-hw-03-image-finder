@@ -1,13 +1,7 @@
-import React from 'react';
-
-export const ImageGalleryItem = ({
-  webformatURL,
-  largeImageURL,
-  openModal,
-}) => {
+export const ImageGalleryItem = ({ key, webformatURL, largeImageURL }) => {
   return (
-    <li className="gallery-item">
-      <img src={webformatURL} alt="" onClick={() => openModal(largeImageURL)} />
+    <li class="gallery-item">
+      <img src={webformatURL} alt="" />
     </li>
   );
 };
