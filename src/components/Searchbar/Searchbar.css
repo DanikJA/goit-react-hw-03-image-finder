@@ -26,8 +26,8 @@
   margin-left: 10px;
 }
 
-.button:hover {
-  background-color: #45a049;
+.buttonSubmit:hover {
+  background-color: greenyellow;
 }
 
 .input {
