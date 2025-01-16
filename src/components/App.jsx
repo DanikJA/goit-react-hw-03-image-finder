@@ -4,8 +4,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
-
-// import Modal from 'react-modal';
+import './App.css';
 
 const API_KEY = '47324612-8ceed49284fd3133cd5b6cb67';
 
@@ -16,6 +15,20 @@ export class App extends Component {
     page: 1,
     loading: false,
     showModal: false,
+    largeImageURL: '',
+  };
+
+  openModal = largeImageURL => {
+    this.setState({
+      showModal: true,
+      largeImageURL,
+    });
+  };
+
+  closeModal = () => {
+    this.setState({
+      showModal: false,
+    });
   };
 
   handleSearchSubmit = query => {
@@ -54,14 +67,26 @@ export class App extends Component {
   };
 
   render() {
-    const { images, loading } = this.state;
+    const { images, loading, largeImageURL, showModal } = this.state;
     return (
-      <div>
-        <Searchbar onSubmit={this.handleSearchSubmit}></Searchbar>
-        {loading && <Loader />}
-        <ImageGallery images={this.state.images}></ImageGallery>
-        {images.length > 0 && <Button onClick={this.handleLoadMore} />}
-      </div>
+      <>
+        <div>
+          <Searchbar onSubmit={this.handleSearchSubmit}></Searchbar>
+          {loading && <Loader />}
+          <ImageGallery
+            images={images}
+            onImageClick={this.openModal}
+          ></ImageGallery>
+          {images.length > 0 && <Button onClick={this.handleLoadMore} />}
+        </div>
+        {showModal && (
+          <div className="overlay" onClick={this.closeModal}>
+            <div className="modal">
+              <img src={largeImageURL} alt="Large" />
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }
