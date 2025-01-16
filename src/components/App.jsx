@@ -5,6 +5,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import './App.css';
+import { Modal } from './Modal/Modal';
 
 const API_KEY = '47324612-8ceed49284fd3133cd5b6cb67';
 
@@ -23,12 +24,14 @@ export class App extends Component {
       showModal: true,
       largeImageURL,
     });
+    window.addEventListener('keydown', this.handleKeyDown);
   };
 
   closeModal = () => {
     this.setState({
       showModal: false,
     });
+    window.removeEventListener('keydown', this.handleKeyDown);
   };
 
   handleSearchSubmit = query => {
@@ -81,11 +84,7 @@ export class App extends Component {
           {images.length > 0 && <Button onClick={this.handleLoadMore} />}
         </div>
         {showModal && (
-          <div className="overlay" onClick={this.closeModal}>
-            <div className="modal">
-              <img src={largeImageURL} alt="Large" />
-            </div>
-          </div>
+          <Modal largeImageURL={largeImageURL} onClose={this.closeModal} />
         )}
       </>
     );
