@@ -9,38 +9,36 @@ div {
   padding: 10px 60px;
 }
 
-/* Стилі для модального вікна */
 .overlay {
-  position: fixed; /* Фіксоване позиціонування */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; /* Покриває всю ширину */
-  height: 100vh; /* Покриває всю висоту */
-  background-color: rgba(0, 0, 0, 0.7); /* Напівпрозорий чорний фон */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: center; /* Центрує модальне вікно по горизонталі */
-  align-items: center; /* Центрує модальне вікно по вертикалі */
-  z-index: 9999; /* Високий пріоритет для перекриття іншого контенту */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 .modal {
-  position: relative; /* Позиціонування для модального контенту */
-  background-color: #fff; /* Білий фон для модального вікна */
+  position: relative;
+  background-color: #fff;
   padding: 20px;
-  border-radius: 8px; /* Краї з округленням */
-  max-width: 90%; /* Макс. ширина 90% від екрану */
-  max-height: 90%; /* Макс. висота 90% від екрану */
-  overflow: hidden; /* При необхідності приховує контент, що виходить за межі */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Тінь для створення ефекту підняття */
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .modal img {
-  width: 100%; /* Картинка займає всю ширину модального вікна */
-  height: auto; /* Пропорційне масштабування */
-  border-radius: 4px; /* Округлення для картинок */
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
-/* Стилі для закриття модального вікна */
 .overlay:hover {
-  cursor: pointer; /* Зміна курсору при наведенні на фон */
+  cursor: pointer;
 }
