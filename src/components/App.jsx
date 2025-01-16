@@ -32,6 +32,7 @@ export class App extends Component {
   };
 
   handleSearchSubmit = query => {
+    if (query.trim() === '') return;
     this.setState({ query, page: 1, images: [] });
     this.fetchImages(query, 1);
   };
