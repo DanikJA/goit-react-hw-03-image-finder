@@ -5,6 +5,6 @@ body {
   padding: 0;
 }
 
-div {
-  padding: 10px 60px;
+.mainDiv {
+  padding: 20px 110px;
 }
