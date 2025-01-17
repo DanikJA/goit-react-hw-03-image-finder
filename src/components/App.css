@@ -4,6 +4,6 @@ body {
   margin: 0;
   padding: 20px 100px;
   @media (max-width: 550px) {
-    padding: 0;
+    padding-bottom: 15px;
   }
 }
