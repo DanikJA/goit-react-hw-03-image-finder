@@ -4,6 +4,10 @@ body {
   margin: 0;
   padding: 20px 100px;
   @media (max-width: 550px) {
-    padding-bottom: 20px;
+    padding: 0;
   }
+}
+
+.maneDiv {
+  padding: 15px;
 }
