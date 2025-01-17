@@ -24,28 +24,31 @@ export class App extends Component {
       showModal: true,
       largeImageURL,
     });
-    window.addEventListener('keydown', this.handleKeyDown);
   };
 
   closeModal = () => {
     this.setState({
       showModal: false,
     });
-    window.removeEventListener('keydown', this.handleKeyDown);
   };
 
   handleSearchSubmit = query => {
     if (query.trim() === '') return;
     this.setState({ query, page: 1, images: [] });
-    this.fetchImages(query, 1);
   };
 
   handleLoadMore = () => {
-    const { page, query } = this.state;
-    const nextPage = page + 1;
-    this.setState({ page: nextPage });
-    this.fetchImages(query, nextPage);
+    this.setState(prevState => ({
+      page: prevState.page + 1,
+    }));
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { query, page } = this.state;
+    if (prevState.query !== query || prevState.page !== page) {
+      this.fetchImages(query, page);
+    }
+  }
 
   fetchImages = async (query, page) => {
     this.setState({ loading: true });

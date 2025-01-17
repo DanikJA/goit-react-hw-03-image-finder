@@ -12,13 +12,13 @@ export class Modal extends Component {
 
   handleKeyDown = event => {
     if (event.code === 'Escape') {
-      this.props.onClose(); // Закриваємо модалку при натисканні Escape
+      this.props.onClose();
     }
   };
 
   handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      this.props.onClose(); // Закриваємо модалку при кліку на фон
+      this.props.onClose();
     }
   };
 
