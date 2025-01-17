@@ -77,7 +77,7 @@ export class App extends Component {
     const { images, loading, largeImageURL, showModal } = this.state;
     return (
       <>
-        <div className="mainDiv">
+        <div>
           <Searchbar onSubmit={this.handleSearchSubmit}></Searchbar>
           {loading && <Loader />}
           <ImageGallery
