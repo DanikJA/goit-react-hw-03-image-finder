@@ -6,6 +6,7 @@ import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import './App.css';
 import { Modal } from './Modal/Modal';
+import { useState } from 'react';
 
 const API_KEY = '47324612-8ceed49284fd3133cd5b6cb67';
 
@@ -19,6 +20,7 @@ export class App extends Component {
     largeImageURL: '',
   };
 
+  // const[state, setState] = useState(false)
   openModal = largeImageURL => {
     this.setState({
       showModal: true,
